@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = ["vips", "glib", "expat", "libjpeg", "libpng", "libtiff"]
+
+[phases.install]
+commands = [
+  "npm install -g corepack@0.24.1",
+  "corepack enable",
+  "pnpm install --frozen-lockfile"
+]
+
+[phases.build]
+commands = [
+  "pnpx prisma generate",
+  "pnpm run build"
+]
+
+[phases.start]
+command = "pnpm start"

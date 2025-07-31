@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
 		optimizeCss: true,
 		optimizeServerReact: true,
 		optimizePackageImports: ["lucide-react", "date-fns"],
+		serverComponentsExternalPackages: ['sharp'],
+
 	},
 	images: {
 		remotePatterns: [{ hostname: "*" }],
