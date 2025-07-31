@@ -1,17 +1,27 @@
 [phases.setup]
-nixPkgs = ["vips", "glib", "expat", "libjpeg", "libpng", "libtiff"]
+nixPkgs = [
+    "nodejs_20",       # Add Node.js back
+    "pnpm-9_x",        # Include pnpm
+    "openssl",
+    "vips",            # Required for sharp
+    "glib",
+    "expat",
+    "libjpeg",
+    "libpng",
+    "libtiff"
+]
 
 [phases.install]
 commands = [
-  "npm install -g corepack@0.24.1",
-  "corepack enable",
-  "pnpm install --frozen-lockfile"
+    "npm install -g corepack@0.24.1",
+    "corepack enable",
+    "pnpm install --frozen-lockfile"
 ]
 
 [phases.build]
 commands = [
-  "pnpx prisma generate",
-  "pnpm run build"
+    "pnpx prisma generate",
+    "pnpm run build"
 ]
 
 [phases.start]
