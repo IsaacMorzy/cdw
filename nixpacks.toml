@@ -1,7 +1,7 @@
 [phases.setup]
 nixPkgs = [
     "nodejs_20",       # Explicit Node.js 20 installation
-    "pnpm@8",        # Ensure pnpm is available
+    "pnpm_8",        # Ensure pnpm is available
     "openssl",
     "vips",            # Required for sharp
     "glib",
