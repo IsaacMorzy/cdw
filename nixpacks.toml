@@ -1,9 +1,9 @@
 [phases.setup]
 nixPkgs = [
     "nodejs_20",
-    "pnpm-8_x",       # Install pnpm v8 directly
+    "pnpm-8_x",
     "openssl",
-    "vips",           # Required for image processing
+    "vips",
     "glib",
     "expat",
     "libjpeg",
@@ -13,21 +13,18 @@ nixPkgs = [
 
 [phases.install]
 commands = [
-    "npm uninstall -g corepack",  # Remove problematic corepack
-    "npm install -g pnpm@8.15.7", # Install specific pnpm version
-    "ls -la",                    # Diagnostic: list files
-    "ls -la cdw/",               # Verify project structure
-    "pnpm install --no-frozen-lockfile"  # Flexible dependency installation
+    "npm uninstall -g corepack",
+    "npm install -g pnpm@8.15.7",
+    "ls -la",  # Keep this for diagnostics
+    "pnpm install --no-frozen-lockfile"
 ]
 
 [phases.build]
 commands = [
-    "pnpx prisma generate --schema=./cdw/prisma/schema/schema.prisma",
+    # Corrected Prisma path - removed cdw/ since it doesn't exist
+    "pnpx prisma generate --schema=./prisma/schema/schema.prisma",
     "pnpm run build"
 ]
 
 [phases.start]
 command = "pnpm start"
-
-[environment]
-PNPM_DISABLE_COREPACK = "1"  # Ensure corepack doesn't interfere
