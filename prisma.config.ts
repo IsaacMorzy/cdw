@@ -1,3 +1,3 @@
 export default {
-    schema: "./cdw/prisma/schema/schema.prisma",
+    schema: "./prisma/schema/schema.prisma",
   };

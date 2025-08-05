@@ -9,7 +9,6 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "preinstall": "npm install -g pnpm@8.15.7",
-    "postinstall": "prisma generate --schema=./cdw/prisma/schema/schema.prisma",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
