@@ -22,7 +22,7 @@ commands = [
 [phases.build]
 commands = [
     # Corrected Prisma path - removed cdw/ since it doesn't exist
-    "pnpx prisma generate",
+    "pnpm prisma generate",
     "pnpm run build"
 ]
 
