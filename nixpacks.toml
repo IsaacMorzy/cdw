@@ -3,7 +3,7 @@ nixPkgs = [
     "nodejs_20",
     "pnpm-8_x",       # Install pnpm v8 directly
     "openssl",
-    "vips",
+    "vips",           # Required for image processing
     "glib",
     "expat",
     "libjpeg",
@@ -13,10 +13,11 @@ nixPkgs = [
 
 [phases.install]
 commands = [
-    # Bypass Corepack completely
-    "npm uninstall -g corepack",
-    # Use pnpm directly from Nix store
-    "pnpm install --frozen-lockfile"
+    "npm uninstall -g corepack",  # Remove problematic corepack
+    "npm install -g pnpm@8.15.7", # Install specific pnpm version
+    "ls -la",                    # Diagnostic: list files
+    "ls -la cdw/",               # Verify project structure
+    "pnpm install --no-frozen-lockfile"  # Flexible dependency installation
 ]
 
 [phases.build]
@@ -27,3 +28,6 @@ commands = [
 
 [phases.start]
 command = "pnpm start"
+
+[environment]
+PNPM_DISABLE_COREPACK = "1"  # Ensure corepack doesn't interfere
