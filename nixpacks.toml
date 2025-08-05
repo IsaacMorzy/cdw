@@ -1,9 +1,9 @@
 [phases.setup]
 nixPkgs = [
-    "nodejs_20",       # Explicit Node.js 20 installation
-    "pnpm_8",        # Ensure pnpm is available
+    "nodejs_20",        # Explicit Node.js 20 installation
+    "pnpm-8_x",         # Correct pnpm v8 package name
     "openssl",
-    "vips",            # Required for sharp
+    "vips",             # Required for sharp
     "glib",
     "expat",
     "libjpeg",
@@ -19,7 +19,7 @@ commands = [
 
 [phases.build]
 commands = [
-    "pnpx prisma generate",
+    "pnpx prisma generate --schema=./cdw/prisma/schema/schema.prisma",
     "pnpm run build"
 ]
 
