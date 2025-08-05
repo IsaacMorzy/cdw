@@ -1,9 +1,9 @@
 [phases.setup]
 nixPkgs = [
-    "nodejs_20",        # Explicit Node.js 20 installation
-    "pnpm-8_x",         # Correct pnpm v8 package name
+    "nodejs_20",
+    "pnpm-8_x",       # Install pnpm v8 directly
     "openssl",
-    "vips",             # Required for sharp
+    "vips",
     "glib",
     "expat",
     "libjpeg",
@@ -13,7 +13,9 @@ nixPkgs = [
 
 [phases.install]
 commands = [
-    "corepack enable",  # Use system corepack
+    # Bypass Corepack completely
+    "npm uninstall -g corepack",
+    # Use pnpm directly from Nix store
     "pnpm install --frozen-lockfile"
 ]
 
