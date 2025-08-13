@@ -22,7 +22,6 @@
         "name": "next"
       }
     ],
-    // Add baseUrl here ▼
     "baseUrl": ".",
     "paths": {
       ".prisma/client": ["./prisma/schema/generated/client"],
