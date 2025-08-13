@@ -2,6 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Install native dependencies for Sharp
 RUN apk add --no-cache \
     vips-dev \
     glib-dev \
