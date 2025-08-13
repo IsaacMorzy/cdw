@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
 		optimizeCss: true,
 		optimizeServerReact: true,
 		optimizePackageImports: ["lucide-react", "date-fns"],
-		serverComponentsExternalPackages: ['sharp'],
+		serverComponentsExternalPackages: ['sharp', '@prisma/client'],
 
 	},
 	images: {
@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
 				],
 			},
 		];
+		
 	},
 };
 
