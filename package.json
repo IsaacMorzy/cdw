@@ -9,16 +9,11 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "preinstall": "npm install -g pnpm@8.15.7",
-<<<<<<< HEAD
-    "postinstall": "prisma generate --schema=./prisma/schema/schema.prisma",
+    "postinstall": "node create-prisma-symlink.js && prisma generate",
     "build": "next build",
-=======
-    "postinstall": "prisma generate --schema=/prisma/schema/schema.prisma",
-    "build": "pnpm prisma:generate && next build",
->>>>>>> 371e953 (Fix prisma config breaking)
     "start": "next start",
-    "lint": "next lint"
-    
+    "lint": "next lint",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.1.13",
@@ -62,7 +57,7 @@
     "lodash.orderby": "^4.6.0",
     "lucide-react": "^0.474.0",
     "mime-types": "^2.1.35",
-    "next":"15.2.1-canary.4",
+    "next": "15.2.1-canary.4",
     "next-auth": "^5.0.0-beta.25",
     "nextjs-toploader": "^3.7.15",
     "nuqs": "^2.3.1",
@@ -104,12 +99,9 @@
     "typescript": "^5"
   },
 
-<<<<<<< HEAD
-=======
-"prisma": {
-  "schema": "prisma/schema/schema.prisma"
-},
->>>>>>> 371e953 (Fix prisma config breaking)
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
 
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }
